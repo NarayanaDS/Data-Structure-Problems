@@ -1,0 +1,66 @@
+Add Two Numbers
+Example:
+
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 0 -> 8
+Explanation: 342 + 465 = 807.
+
+"""
+Reshma
+Python
+"""
+
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        if l1 is None:
+            return l2
+        if l2 is None:
+            return l1
+        
+        
+        sum_ = 0
+        carry = 0
+        result = ListNode(0)
+        result_ = result
+        
+        while((l1 is not None) or (l2 is not None)):
+            if l1 is not None and l2 is not None:
+                total = carry + (l1.val + l2.val)
+                sum_ = total % 10
+                carry = total/10
+                l1 = l1.next
+                l2 = l2.next
+            elif l1 is not None:
+                total = carry + (l1.val)
+                sum_ = total % 10
+                carry = total/10
+                l1 = l1.next
+            else:
+                total = carry + (l2.val)
+                sum_ = total % 10
+                carry = total/10
+                l2 = l2.next
+            
+            result.next = ListNode(sum_)
+            result = result.next
+        
+        if carry:
+            result.next = ListNode(carry)
+            result.next.next = None
+        else:   
+            result.next = None
+        
+        return result_.next
+        
