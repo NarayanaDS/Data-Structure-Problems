@@ -1,0 +1,22 @@
+"""
+Reshma
+Python
+"""
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        if not nums:
+            return []
+        map_ = {}
+        
+        i = 0
+        for elm in nums:
+            if (target - elm) in map_:
+                list_ = [map_[target - elm],i]
+                return list_
+            map_[elm] = i
+            i += 1
