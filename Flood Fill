@@ -1,1 +1,53 @@
+An image is represented by a 2-D array of integers, each integer representing the pixel value of the image (from 0 to 65535).
 
+Given a coordinate (sr, sc) representing the starting pixel (row and column) of the flood fill, and a pixel value newColor, "flood fill" the image.
+
+To perform a "flood fill", consider the starting pixel, plus any pixels connected 4-directionally to the starting pixel of the same color as the starting pixel, plus any pixels connected 4-directionally to those pixels (also with the same color as the starting pixel), and so on. Replace the color of all of the aforementioned pixels with the newColor.
+
+At the end, return the modified image.
+
+
+class Solution(object):
+    global floodFill_dfs
+    global neighbor
+    global visited
+    
+    def neighbor(image, r,c):
+        return (r-1,c), (r+1, c), (r, c-1), (r, c+1)
+    
+    def floodFill_dfs(image, r, c, Color, newColor, visited):
+        if r < 0 or r >= len(image):
+            return
+        
+        if c < 0 or c >= len(image[0]) :
+            return
+        
+        if image[r][c] != Color:
+            return
+        
+        moves = neighbor(image, r, c)
+        
+        visited.add((r,c))
+        image[r][c] = newColor
+        
+        
+        for points in moves:
+            if points not in visited:
+                floodFill_dfs(image, points[0], points[1], Color, newColor, visited)
+        
+        
+    
+    def floodFill(self, image, sr, sc, newColor):
+        """
+        :type image: List[List[int]]
+        :type sr: int
+        :type sc: int
+        :type newColor: int
+        :rtype: List[List[int]]
+        """
+        
+        Color = image[sr][sc]
+        visited = set()
+        floodFill_dfs(image,sr,sc,Color,newColor,visited)
+        return image
+     
