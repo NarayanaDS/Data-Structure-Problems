@@ -11,3 +11,4 @@ A list of interview question on data structure
 9. [Valid Anagram](https://github.com/reshma67/Data-Structure-Problems/blob/master/Valid%20Anagram)
 10.[Missing Number](https://github.com/reshma67/Data-Structure-Problems/blob/master/Missing%20Number)
 11.[Reverse String](https://github.com/reshma67/Data-Structure-Problems/blob/master/Reverse%20String)
+12.[Intersection of Two Arrays]()
