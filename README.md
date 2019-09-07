@@ -12,3 +12,4 @@ A list of interview question on data structure
 10.[Missing Number](https://github.com/reshma67/Data-Structure-Problems/blob/master/Missing%20Number)
 11.[Reverse String](https://github.com/reshma67/Data-Structure-Problems/blob/master/Reverse%20String)
 12.[Intersection of Two Arrays](https://github.com/reshma67/Data-Structure-Problems/blob/master/Intersection%20of%20two%20arrays)
+13.[Quicksort](https://github.com/reshma67/Data-Structure-Problems/blob/master/QuickSort)
