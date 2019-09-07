@@ -1,0 +1,42 @@
+Given an array of integers nums, sort the array in ascending order.
+
+ 
+
+Example 1:
+
+Input: [5,2,3,1]
+Output: [1,2,3,5]
+
+
+class Solution(object):
+    global quickSort
+    global findPivot
+    
+    def findPivot(nums, low, high):
+        pivot = nums[high]
+        i = low - 1
+        
+        for j in range(low, high):
+            if(nums[j] < pivot):
+                i += 1
+                nums[i] , nums[j] = nums[j] , nums[i]
+        nums[i+1], nums[high] = nums[high] , nums[i+1]
+        
+        return i+1
+    
+    def quickSort(nums, low, high):
+        if low < high :
+            pivot = findPivot(nums, low, high)
+            quickSort(nums,low, pivot -1)
+            quickSort(nums, pivot+1, high)
+    
+    def sortArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        low = 0
+        high = len(nums) - 1
+        
+        quickSort(nums, low, high)
+        return nums
